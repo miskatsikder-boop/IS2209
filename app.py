@@ -8,7 +8,7 @@ app = Flask(__name__)
 saved_players = []
 
 # List of real player names to "scout" from
-PLAYER_POOL = ["Erling Haaland", "Lionel Messi", "Kylian Mbappe", "Bukayo Saka",
+PLAYER_POOL = ["Erling Haaland", "Gianluigi Buffon", "Kylian Mbappe", "Bukayo Saka",
                "Marcus Rashford", "Kevin De Bruyne", "Vinicius Junior", "Mohamed Salah"]
 
 
