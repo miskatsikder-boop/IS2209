@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Scout Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="background-circle circle-one"></div>
+  <div class="background-circle circle-two"></div>
+
+  <div class="container">
+
+    <div class="main-card">
+      <div class="small-tag">Transfer Window Open</div>
+
+      <h1>⚽ Pro Scout Generator</h1>
+      <p class="subtitle">Discover real world talent for your squad</p>
+
+      <div class="image-box">
+        <img src="{{ player_image }}" alt="player" class="dog-img">
+      </div>
+
+      <h2>{{ player_name }}</h2>
+      <p class="position-tag"><strong>{{ position }}</strong> | {{ team }}</p>
+
+      <div class="buttons">
+        <form action="/save" method="POST">
+          <input type="hidden" name="player_image" value="{{ player_image }}">
+          <input type="hidden" name="player_name" value="{{ player_name }}">
+          <button type="submit" class="save-btn">Sign Player</button>
+        </form>
+
+        <form action="/" method="GET">
+          <button type="submit" class="load-btn">Scout Next</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="saved-section">
+      <div class="saved-top">
+        <h3>Signed Squad</h3>
+        <span class="count-box">{{ saved_players|length }} Players</span>
+      </div>
+
+      {% if saved_players %}
+        <div class="saved-grid">
+          {% for player in saved_players %}
+            <div class="saved-card">
+              <img src="{{ player.image }}" alt="{{ player.name }}">
+              <div class="saved-info">
+                <p>{{ player.name }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="empty-box">
+          <p>No players signed yet. Start scouting!</p>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+
+</body>
+</html>
