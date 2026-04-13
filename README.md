@@ -11,8 +11,7 @@ A  Flask-based scouting application designed to build a complete starting 11 squ
 
 ## Project Deliverables
 * **GitHub Repository:** https://github.com/miskatsikder-boop/IS2209
-* **Live Website:** https://group-14-football-squad-generator.onrender.com
-
+* **Live Website:** https://is2209-4sel.onrender.com
 ## How to Run Locally
 1. Clone the repo.
 2. Ensure Docker is running.
