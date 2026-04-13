@@ -8,7 +8,7 @@ app.secret_key = "63f4945d921d599f27ae4fdf5bada3f1"
 saved_players = []
 
 INSULTS = [
-    "Let’s just thank Arceus you’re not a manager.",
+    "Let’s just thank God you’re not a manager.",
     "Selection complete… football has been saved from your decisions.",
     "Done. UEFA is reviewing your choices as we speak.",
     "Process finished — your squad is… questionable at best.",
@@ -17,7 +17,7 @@ INSULTS = [
     "Done. Even Sunday League wouldn’t accept this lineup.",
     "Selection finished — HR will be in touch.",
     "Great job. Please never manage a team again.",
-    "Process complete. Your frighten scare me.",
+    "Process complete. Your tactics scare me.",
 ]
 
 GOALKEEPERS = [
@@ -60,10 +60,10 @@ OUTFIELD_PLAYERS = [
     "Martin Odegaard",
     "Virgil van Dijk",
     "Neymar",
-    "Jorge DeGuzzman",
+    "Antoine Griezmann",
     "Bruno Fernandes",
     "Heung-min Son",
-    "Marcus Aurelias",
+    "Marcus Rashford",
 ]
 
 
@@ -78,7 +78,7 @@ def index():
         )
 
     if not saved_players:
-        target_name = random.choice(GOALIES)
+        target_name = random.choice(GOALKEEPERS)
         is_gk = True
     else:
         target_name = random.choice(OUTFIELD_PLAYERS)
