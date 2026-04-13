@@ -78,7 +78,7 @@ def index():
         )
 
     if not saved_players:
-        target_name = random.choice(GOALKEEPERS)
+        target_name = random.choice(GOALIES)
         is_gk = True
     else:
         target_name = random.choice(OUTFIELD_PLAYERS)
