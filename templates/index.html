@@ -1,69 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elite Scout Generator</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>Football Squad Generator</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-
-  <div class="background-circle circle-one"></div>
-  <div class="background-circle circle-two"></div>
-
-  <div class="container">
-
-    <div class="main-card">
-      <div class="small-tag">Transfer Window Open</div>
-
-      <h1>⚽ Pro Scout Generator</h1>
-      <p class="subtitle">Discover real world talent for your squad</p>
-
-      <div class="image-box">
-        <img src="{{ player_image }}" alt="player" class="dog-img">
-      </div>
-
-      <h2>{{ player_name }}</h2>
-      <p class="position-tag"><strong>{{ position }}</strong> | {{ team }}</p>
-
-      <div class="buttons">
-        <form action="/save" method="POST">
-          <input type="hidden" name="player_image" value="{{ player_image }}">
-          <input type="hidden" name="player_name" value="{{ player_name }}">
-          <button type="submit" class="save-btn">Sign Player</button>
-        </form>
-
-        <form action="/" method="GET">
-          <button type="submit" class="load-btn">Scout Next</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="saved-section">
-      <div class="saved-top">
-        <h3>Signed Squad</h3>
-        <span class="count-box">{{ saved_players|length }} Players</span>
-      </div>
-
-      {% if saved_players %}
-        <div class="saved-grid">
-          {% for player in saved_players %}
-            <div class="saved-card">
-              <img src="{{ player.image }}" alt="{{ player.name }}">
-              <div class="saved-info">
-                <p>{{ player.name }}</p>
-              </div>
+    <div class="container">
+        <div class="main-card">
+            <form action="/reset" method="GET" class="reset-wrap">
+                <button type="submit" class="gk-reset-btn">Build New Squad</button>
+            </form> {% if not player %}
+            <div class="tag">SQUAD COMPLETE</div>
+            <h1>Starting 11 Ready</h1>
+            <p class="insult-text">{{ insult }}</p> {% else %}
+            <div class="tag"> {% if saved_players|length == 0 %}PICK YOUR KEEPER{% else %}PICK YOUR OUTFIELD PLAYER{% endif %} </div>
+            <h1>Football Squad Generator</h1>
+            <div class="image-box"> {% if player.image %} <img src="{{ player.image }}" alt="player"> {% else %}
+                <div class="no-photo">No Photo Found</div> {% endif %} </div>
+            <h2>{{ player.name }}</h2>
+            <p>{{ player.position }} | {{ player.team }}</p> {% if player.exists %}
+            <p class="error-msg">Player already in squad!</p> {% endif %}
+            <div class="buttons">
+                <form action="/save" method="POST" style="display: inline;">
+                    <input type="hidden" name="player_name" value="{{ player.name }}">
+                    <input type="hidden" name="player_image" value="{{ player.image }}">
+                    <input type="hidden" name="is_gk" value="{{ player.is_gk }}">
+                    <button type="submit" class="save-btn" {% if player.exists or not player.image %}disabled{% endif %}>Sign Player</button>
+                </form>
+                <a href="/" class="load-btn">Scout Next</a>
+            </div> {% endif %}
+        </div>
+        <div class="saved-section">
+            <div class="saved-top">
+                <h3>Starting 11</h3>
+                <span class="count">{{ saved_players|length }} / 11</span>
             </div>
-          {% endfor %}
+            <div class="saved-grid"> {% for p in saved_players %}
+                <div class="saved-card {{ 'gk-card' if p.is_gk else '' }}">
+                    <img src="{{ p.image }}" alt="{{ p.name }}">
+                    <div class="info">
+                        <p>{{ p.name }}</p>
+                    </div>
+                </div> {% endfor %} </div>
         </div>
-      {% else %}
-        <div class="empty-box">
-          <p>No players signed yet. Start scouting!</p>
-        </div>
-      {% endif %}
     </div>
-
-  </div>
-
 </body>
+
 </html>
