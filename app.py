@@ -60,10 +60,10 @@ OUTFIELD_PLAYERS = [
     "Martin Odegaard",
     "Virgil van Dijk",
     "Neymar",
-    "Antoine Griezmann",
+    "Jorge DeGuzzman",
     "Bruno Fernandes",
     "Heung-min Son",
-    "Marcus Rashford",
+    "Marcus Aurelias",
 ]
 
 
