@@ -6,7 +6,7 @@ A  Flask-based scouting application designed to build a complete starting 11 squ
 * **Group Number:** 14
 * **Labib Shaif Abesh Ullah** - 124494514
 * **Nicholas Tian Chee Wong** - 124480504
-* **Trey Winter O'Callaghan** - [Insert Student Number]
+* **Trey Winter O'Callaghan** - 124323811
 * **Miskat Sikder** - 121336576
 
 ## Project Deliverables
