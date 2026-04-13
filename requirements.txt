@@ -1,4 +1,6 @@
-flask
-psycopg[binary]
-requests
+Flask
 python-dotenv
+gunicorn
+requests
+psycopg2-binary
+
