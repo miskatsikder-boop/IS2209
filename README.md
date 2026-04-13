@@ -1,20 +1,20 @@
-# My Football App
+# Group 14 | Football Squad Generator
 
-A simple Flask app to generate random football squads.
+A  Flask-based scouting application designed to build a complete starting 11 squad using TheSportsDB API.
 
-## Installation
+## Group Information
+* **Group Number:** 14
+* **Labib Shaif Abesh Ullah** - 124494514
+* **Nicholas Tian Chee Wong** - 124480504
+* **Trey Winter O'Callaghan** - [Insert Student Number]
+* **Miskat Sikder** - 121336576
 
-1. Install Flask: `pip install flask`
-2. Run the app: `python app.py`
+## Project Deliverables
+* **GitHub Repository:** https://github.com/miskatsikder-boop/IS2209
+* **Live Website:** [Insert your Live URL Here (e.g., Render/Railway)]
 
-## Features
-
-- Random player scouting from 50 players first player to be selected is always a Goalkeeper
-- Sign players to a starting 11
-- Duplicate player detection
-
-## Tools
-
-- Python
-- Flask
-- TheSportsDB API
+## How to Run Locally
+1. Clone the repo.
+2. Ensure Docker is running.
+3. Run `docker build -t elite-scout .`
+4. Run `docker run -p 5000:5000 elite-scout`
